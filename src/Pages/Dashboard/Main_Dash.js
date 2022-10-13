@@ -11,7 +11,7 @@ export default function MainDash() {
       <Image style={styles.img1} source={require('../../../assets/img1.png')}></Image>
       <Text style={styles.h1}>Iniciando com To-Do</Text>
       <Text style={styles.h2}>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       Sed posuere gravida purus id eu condimentum est diam quam. 
       Condimentum blandit diam.</Text>
 

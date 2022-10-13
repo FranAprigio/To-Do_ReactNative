@@ -4,12 +4,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import Main_Dash from "./src/Pages/Dashboard/Main_Dash"
 import Login from "./src/Pages/Login/Login"
 import Registration from "./src/Pages/Registration/Registration"
+import Home from "./src/Pages/HomeScreen/Home"
+
+
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Registration />
+      <Home />
     </View>
   );
 }

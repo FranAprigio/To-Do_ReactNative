@@ -29,10 +29,7 @@ export default function Login() {
                 keyboardType="number"
             />
             <Text style={styles.pass}>Forget Password?</Text>
-            <Button style={styles.button1}
-                title="Press me"
-                onPress={() => Alert.alert('Simple Button pressed')}
-            />           
+            <Button style={styles.button1}title="Press me"/>           
             <Text style={styles.h3}>Não possui uma conta? Sign Up</Text>
 
         </View>
