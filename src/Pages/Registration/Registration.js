@@ -2,7 +2,7 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-export default function Registration() {
+export default function Registration({navigation}) {
     const [text, onChangeText] = React.useState(null);
     const [number, onChangeNumber] = React.useState(null);
     return (
@@ -50,7 +50,7 @@ export default function Registration() {
 
             <Button style={styles.button1}
                 title="Press me"
-                onPress={() => Alert.alert('Simple Button pressed')}
+                onPress={() => navigation.navigate('Home')}
             /> 
 
             <Text style={styles.h3}>Ja possui uma conta? Sign In</Text>
@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
   },
 
   button1:{
-
+    width:100,
   },
 });

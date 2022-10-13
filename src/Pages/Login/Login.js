@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
 
 
 
-export default function Login() {
+export default function Login({navigation}) {
     const [text, onChangeText] = React.useState(null);
     const [number, onChangeNumber] = React.useState(null);
     return (
@@ -27,9 +27,11 @@ export default function Login() {
                 value={number}
                 placeholder="****************"
                 keyboardType="number"
+                
             />
             <Text style={styles.pass}>Forget Password?</Text>
-            <Button style={styles.button1}title="Press me"/>           
+            <Button style={styles.button1}title="Press me"
+            onPress={() => navigation.navigate('Home')}/>           
             <Text style={styles.h3}>Não possui uma conta? Sign Up</Text>
 
         </View>

@@ -1,16 +1,17 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, } from 'react-native';
+import Lista from "../../Components/List/Lista";
 
 
-
-export default function Home() {
+export default function Home({}) {
 
 
 
   return (
     <View style={styles.container}>
         <StatusBar style="auto" />
+
 
         <View style={styles.fhalf}>
             
@@ -24,8 +25,12 @@ export default function Home() {
 
             <Text style={styles.tr}>Lista de Tarefas</Text>
 
+            <Lista />
         </View> 
+
     </View>
+
+    
 
   );
 }

@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
 import AboveShape from "../../Components/Shape/AboveShape"
 
-export default function MainDash() {
+export default function MainDash({navigation}) {
   return (
     <View style={styles.container}>
       
@@ -17,7 +17,7 @@ export default function MainDash() {
 
       <Button style={styles.button1}
         title="Press me"
-        onPress={() => Alert.alert('Simple Button pressed')}
+        onPress={() => navigation.navigate('Registration')}
       />
 
     </View>
