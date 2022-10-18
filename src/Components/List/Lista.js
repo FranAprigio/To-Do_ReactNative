@@ -3,21 +3,20 @@ import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "re
 
 const DATA = [
   {
-    title: "Main dishes",
-    data: ["Pizza", "Burger", "Risotto"]
+
+    data: [
+    "Lorem ipsum dolor sit amet", 
+    "Lorem ipsum dolor sit amet", 
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    "Lorem ipsum dolor sit amet",
+    ]
   },
-  {
-    title: "Sides",
-    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
-  },
-  {
-    title: "Drinks",
-    data: ["Water", "Coke", "Beer"]
-  },
-  {
-    title: "Desserts",
-    data: ["Cheese Cake", "Ice Cream"]
-  }
+
 ];
 
 const Item = ({ title }) => (
@@ -47,19 +46,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: StatusBar.currentHeight,
-    marginHorizontal: 16
+
   },
   item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8
+    backgroundColor: "white",
+    padding: 1,
+    borderColor:'#62D2C3',
+    borderWidth:'2px',
+    width:300,
   },
-  header: {
-    fontSize: 32,
-    backgroundColor: "#fff"
-  },
+
   title: {
-    fontSize: 24
+    fontSize: '1.2em',
   }
 });
 
