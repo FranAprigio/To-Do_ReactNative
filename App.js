@@ -8,8 +8,6 @@ import Registration from "./src/Pages/Registration/Registration"
 import Home from "./src/Pages/HomeScreen/Home"
 
 
-
-
 const Stack = createNativeStackNavigator();
 
 

@@ -15,8 +15,10 @@ export default function MainDash({navigation}) {
       Sed posuere gravida purus id eu condimentum est diam quam. 
       Condimentum blandit diam.</Text>
 
-      <Button style={styles.button1}
-        title="Press me"
+      <Button style={styles.button}
+        title="Iniciar"
+        color="#62D2C3"
+
         onPress={() => navigation.navigate('Registration')}
       />
 
@@ -30,14 +32,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#E6E6E6',
     alignItems: 'center',
     justifyContent: 'center',
-    width:340,
   },
 
   img1:{
     width:150,
     height: 150,
-    
-    
   },
 
   h1:{
@@ -49,9 +48,14 @@ const styles = StyleSheet.create({
 
   h2:{
     fontSize:15,
-    paddingBottom:90,
+    paddingBottom:70,
+    width:300,
+    alignContent:'center',
+    textAlign:'center',
   },
-  button1:{
+
+  button:{
 
   },
+
 });

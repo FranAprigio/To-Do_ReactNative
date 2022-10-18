@@ -2,6 +2,8 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
+import { Link } from "@react-navigation/native";
+
 export default function Registration({navigation}) {
     const [text, onChangeText] = React.useState(null);
     const [number, onChangeNumber] = React.useState(null);
@@ -49,12 +51,14 @@ export default function Registration({navigation}) {
             />
 
             <Button style={styles.button1}
-                title="Press me"
+                title="Registrar"
+                color="#62D2C3"
                 onPress={() => navigation.navigate('Home')}
             /> 
 
-            <Text style={styles.h3}>Ja possui uma conta? Sign In</Text>
-
+            <Link style={styles.h3} to={{ screen: 'Login'}}>
+            Ja possui uma conta? Sign In
+            </Link>
         </View>
 
     );
@@ -68,19 +72,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  h1:{
+    fontSize: '1.7em',
+    marginBottom:15,
+  },
 
+  h2:{
+    fontSize:'1.2em',
+    marginBottom:15,
+  },
 
+  sub:{
+    fontSize: '1em',
+  },
 
   input: {
     height: 40,
-    width:170,
+    width:200,
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    marginBottom:23,
+    marginBottom:15,
+    color:'#808080',
+    borderRadius:9,
+    borderColor:'#62D2C3',
+    borderWidth:'2px',
   },
 
   button1:{
-    width:100,
+    width:200,
+    marginBottom:10,
+  },
+
+  h3:{
+    marginTop:20,
+    fontSize:'1em',
   },
 });
