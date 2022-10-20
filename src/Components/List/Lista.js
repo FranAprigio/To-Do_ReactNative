@@ -1,64 +1,21 @@
-import React, { Component } from "react";
-import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
+// import * as React from 'react';
+// import { CheckBox } from 'react-native-elements';
 
-const DATA = [
-  {
+// export default function Lista () {
+//   const [isSelected, setSelected] = React.useState(false);
 
-    data: [
-    "Lorem ipsum dolor sit amet", 
-    "Lorem ipsum dolor sit amet", 
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    "Lorem ipsum dolor sit amet",
-    ]
-  },
+//   return (
 
-];
+//     <CheckBox
+//     title="Prova de Quimica"
+//     type
+//     checkedIcon="check"
+//     uncheckedIcon="square-o"
+//     checkColor="green"
+//     uncheckedColor="red"
+//     checked={isSelected}
+//     onPress={() => setSelected(!isSelected)}
+//     />
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-);
-
-class Lista extends Component {
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <SectionList
-          sections={DATA}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        />
-      </SafeAreaView>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: StatusBar.currentHeight,
-
-  },
-  item: {
-    backgroundColor: "white",
-    padding: 1,
-    borderColor:'#62D2C3',
-    borderWidth:'2px',
-    width:300,
-  },
-
-  title: {
-    fontSize: '1.2em',
-  }
-});
-
-export default Lista;
+//   );
+// };

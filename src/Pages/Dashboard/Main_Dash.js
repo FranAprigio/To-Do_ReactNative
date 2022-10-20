@@ -1,6 +1,6 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import AboveShape from "../../Components/Shape/AboveShape"
 
 export default function MainDash({navigation}) {
@@ -15,12 +15,10 @@ export default function MainDash({navigation}) {
       Sed posuere gravida purus id eu condimentum est diam quam. 
       Condimentum blandit diam.</Text>
 
-      <Button style={styles.button}
-        title="Iniciar"
-        color="#62D2C3"
-
-        onPress={() => navigation.navigate('Registration')}
-      />
+      <Pressable style={styles.pressable}
+      onPress={() => navigation.navigate('Registration')}>
+      <Text style={styles.pressableText}>INICIAR</Text>
+      </Pressable>
 
     </View>
   );
@@ -54,8 +52,19 @@ const styles = StyleSheet.create({
     textAlign:'center',
   },
 
-  button:{
+  pressable:{
+    backgroundColor: 'rgb(98, 210, 195)',
+    width:80,
+    height:35,
+    alignItems:'center',
+    justifyContent:'center',
+    margin:8,
+    borderRadius:2,
+    color:'withe',
+    },
 
+  pressableText:{
+    fontWeight: 'bold',
+    color:'white',
   },
-
 });

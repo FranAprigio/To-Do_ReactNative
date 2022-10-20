@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Pressable, Image } from 'react-native';
 import { Link } from "@react-navigation/native";
 
 
@@ -19,7 +19,9 @@ export default function Login({navigation}) {
                 placeholder="arthur.villaça.imagi.com"
                 keyboardType="text"
             />
+            
             <Text style={styles.sub}>Senha</Text>
+            
             <TextInput
                 style={styles.input}
                 onChangeNumber={onChangeNumber}
@@ -27,15 +29,14 @@ export default function Login({navigation}) {
                 value={number}
                 placeholder="****************"
                 keyboardType="number"
-                
             />
+
             <Text style={styles.pass}>Forget Password?</Text>
 
-            <Button style={styles.button}
-            title="Login"
-            color="#62D2C3"
-            onPress={() => navigation.navigate('Home')}/>   
-
+            <Pressable style={styles.pressable}
+            onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.pressableText}>LOGIN</Text>
+            </Pressable>  
 
             <Link style={styles.h3} to={{ screen: 'Registration'}}>
             Não possui uma conta? Sign Up
@@ -43,8 +44,6 @@ export default function Login({navigation}) {
         </View>
     );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -54,11 +53,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  img1:{
+    width:150,
+    height:150,
+    marginBottom:20,
+  },
+
   h1:{
     fontSize:20,
     fontStyle: 'bold',
     paddingBottom: 20,
-
   },
 
   sub:{
@@ -82,9 +86,19 @@ const styles = StyleSheet.create({
     marginBottom:10,
   },
 
-  button:{
-    borderColor:'black',
+  pressable:{
+    backgroundColor: 'rgb(98, 210, 195)',
+    width:80,
+    height:35,
+    alignItems:'center',
+    justifyContent:'center',
+    margin:8,
+    borderRadius:2
+  },
 
+  pressableText:{
+    fontWeight: 'bold',
+    color:'white',
   },
 
   h3:{

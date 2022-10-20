@@ -1,6 +1,6 @@
 import React from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
 
 import { Link } from "@react-navigation/native";
 
@@ -50,17 +50,15 @@ export default function Registration({navigation}) {
                 keyboardType="number"
             />
 
-            <Button style={styles.button1}
-                title="Registrar"
-                color="#62D2C3"
-                onPress={() => navigation.navigate('Home')}
-            /> 
+            <Pressable style={styles.pressable}
+            onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.pressableText}>REGISTRAR</Text>
+            </Pressable>
 
             <Link style={styles.h3} to={{ screen: 'Login'}}>
             Ja possui uma conta? Sign In
             </Link>
         </View>
-
     );
 }
 
@@ -99,9 +97,19 @@ const styles = StyleSheet.create({
     borderWidth:'2px',
   },
 
-  button1:{
-    width:200,
-    marginBottom:10,
+  pressable:{
+    backgroundColor: 'rgb(98, 210, 195)',
+    width:100,
+    height:35,
+    alignItems:'center',
+    justifyContent:'center',
+    margin:8,
+    borderRadius:2,
+  },
+
+  pressableText:{
+    fontWeight: 'bold',
+    color:'white',
   },
 
   h3:{

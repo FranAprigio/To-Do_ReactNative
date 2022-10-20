@@ -2,13 +2,10 @@ import React from "react";
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Link  } from "@react-navigation/native";
+
 import Lista from "../../Components/List/Lista";
 
-
-export default function Home({}) {
-
-
+export default function Home({navigation}) {
 
   return (
     <View style={styles.container}>
@@ -36,12 +33,9 @@ export default function Home({}) {
 
             <Text style={styles.tr}>Lista de Tarefas</Text>
 
-            <Lista />
         </View> 
 
     </View>
-
-    
 
   );
 }
@@ -54,27 +48,30 @@ const styles = StyleSheet.create({
 
   iconContainer:{
     flexDirection:'column',
-
+    alignSelf:'end',
+    //marginLeft:280
     },
 
   fhalf:{
     backgroundColor:'#62D2C3',
     height:'40%',
-    width:400,
-    alignItems:'center',    
+    width:'100%',
+    //alignItems:'center',    
   },
 
   img1:{
     height:'120px',
     width:'120px',
+    alignSelf:'center',
   },
 
   tex:{
     fontSize: '1.3em',
+    alignSelf:'center',
   },
 
   shalf:{
-    width:400,
+    width:'100%',
     height:'60%',
     alignItems:'center',
   },
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
 
   tr:{
     fontSize:'1.5em',
-  }
-
+  },
 
 });
