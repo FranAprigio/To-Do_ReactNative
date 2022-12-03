@@ -1,12 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Pressable } from 'react-native';
+import Storage from '../../../database/storage';
+import Authentication from "../../../database/autentication";
 
 import { Link } from "@react-navigation/native";
 
+const storage = new Storage();
+
 export default function Registration({navigation}) {
-    const [text, onChangeText] = React.useState(null);
-    const [number, onChangeNumber] = React.useState(null);
+  
+    
+
+    //variavel do storage
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    //salva registro
+    const addContent = () => {
+    storage.add({ name, email, senha });
+    // navigation.navigate('ListContentScreen');
+    navigation.navigate('Home');
+
+    };
+  
+    const handleRegister = async() => {
+    await Authentication.registerUser(email, senha).then(async(e) => {
+       storage.registerUsername({name:name, userId: e.user.uid});
+       navigation.navigate('Login');  
+      
+    }).catch((error) => {
+          alert(error);
+        });
+
+    
+    // .then(() => {
+    //      navigation.navigate('Login');
+    //   }).catch((error) => {
+    //       alert(error);
+    // });   
+    // await Authentication.login(email, senha);
+    // const userId = await Authentication.getCurrentUser();
+    // storage.registerUsername(name, userId).then(() => {
+      
+    // })   
+    
+  };
+  
     return (
 
         <View style={styles.container}>
@@ -17,16 +58,16 @@ export default function Registration({navigation}) {
             <Text style={styles.sub}>Nome Completo</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
+                onChangeText={setName}
+                value={name}
                 placeholder="Arthur Villaça Gadun"
                 keyboardType="text"
             />
             <Text style={styles.sub}>Email</Text>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
+                onChangeText={setEmail}
+                value={email}
                 placeholder="arthur.villaça.imagi.com"
                 keyboardType="text"
             />
@@ -34,24 +75,14 @@ export default function Registration({navigation}) {
             <Text style={styles.sub}>Senha</Text>
             <TextInput
                 style={styles.input}
-                onChangeNumber={onChangeNumber}
+                onChangeText={setSenha}
                 secureTextEntry={true}
-                value={number}
+                value={senha}
                 placeholder="****************"
-                keyboardType="number"
+                keyboardType="text"
             />
-            <Text style={styles.sub}>Confirme a senha</Text>
-            <TextInput
-                style={styles.input}
-                onChangeNumber={onChangeNumber}
-                secureTextEntry={true}
-                value={number}
-                placeholder="****************"
-                keyboardType="number"
-            />
-
             <Pressable style={styles.pressable}
-            onPress={() => navigation.navigate('Home')}>
+            onPress={handleRegister}>
             <Text style={styles.pressableText}>REGISTRAR</Text>
             </Pressable>
 
@@ -94,7 +125,11 @@ const styles = StyleSheet.create({
     color:'#808080',
     borderRadius:9,
     borderColor:'#62D2C3',
-    borderWidth:'2px',
+  },
+
+  h3:{
+    marginTop:20,
+    fontSize:'1em',
   },
 
   pressable:{
@@ -104,16 +139,11 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     margin:8,
-    borderRadius:2,
+    borderRadius:2
   },
 
   pressableText:{
     fontWeight: 'bold',
-    color:'white',
-  },
-
-  h3:{
-    marginTop:20,
-    fontSize:'1em',
+    color:'white'
   },
 });

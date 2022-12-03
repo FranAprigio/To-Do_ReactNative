@@ -5,12 +5,14 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Lista from "../../Components/List/Lista";
 
+import {AuthContext} from "../../../Context/context.js"
+
 export default function Home({navigation}) {
+  const {name} = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
         <StatusBar style="auto" />
-
 
         <View style={styles.fhalf}>
           <View style={styles.iconContainer}>
@@ -25,7 +27,7 @@ export default function Home({navigation}) {
 
           <Image style={styles.img1} source={require('../../../assets/iconpep.png')}></Image>
             
-          <Text style={styles.tex}>Bem Vindo Arthur</Text>
+          <Text value={name} onChangeText={(texto) => setName(texto)} style={styles.tex}>Bem Vindo {name}</Text>
 
         </View>
         <View style={styles.shalf}>
@@ -33,8 +35,8 @@ export default function Home({navigation}) {
 
             <Text style={styles.tr}>Lista de Tarefas</Text>
 
+            <Lista />
         </View> 
-
     </View>
 
   );
